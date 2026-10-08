@@ -1,0 +1,387 @@
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+.jk{--bg:#060D1C;--navy:#0A1F44;--panel:#0B1A36;--royal:#1F4FD1;--sky:#7FA3FF;--red:#D9272E;--red2:#F04A52;--cream:#F6F2EA;--parch:#D4AF5A;--gold:#B18533;--mute:#AEB6C9;--line:rgba(246,242,234,.12);
+ font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--cream);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+.jk *{box-sizing:border-box;margin:0;padding:0}
+.jk h1,.jk h2,.jk h3,.jk .serif{font-family:Fraunces,Georgia,"Times New Roman",serif;color:var(--cream);line-height:1.05;letter-spacing:-.015em;font-weight:600}
+.jk h1{font-size:clamp(2.4rem,4.6vw,3.9rem)}
+.jk h2{font-size:clamp(2rem,4.2vw,3.4rem)}
+.jk h3{font-size:1.35rem}
+.jk em{font-style:italic;color:var(--parch);font-weight:500}
+.jk p{font-size:1.05rem;color:var(--mute)}
+.jk a{color:inherit;text-decoration:none}
+.jk .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.jk .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--parch)}
+.jk .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.jk .eyebrow::before{content:"";width:34px;height:1px;background:var(--parch);opacity:.8}
+.jk .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 30px;border-radius:999px;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:transform .15s,box-shadow .15s,background .15s;min-height:50px;white-space:nowrap}
+.jk .btn:hover{transform:translateY(-1px)}
+.jk .btn-red{background:linear-gradient(135deg,var(--red2),var(--red));color:#fff;box-shadow:0 14px 34px rgba(217,39,46,.3)}
+.jk .btn-gold{background:linear-gradient(135deg,#E2C275,var(--gold));color:#1a1206;box-shadow:0 14px 34px rgba(177,133,51,.28)}
+.jk .logo{display:block;height:56px;width:auto}
+.jk .nav .logo{height:54px}
+@media(max-width:700px){.jk .nav .logo{height:44px}}
+.jk .btn-ghost{background:transparent;color:var(--cream);border-color:rgba(246,242,234,.35)}
+.jk .btn-ghost:hover{background:rgba(246,242,234,.08)}
+.jk .btn-cream{background:var(--cream);color:var(--navy)}
+.jk .btn .dot{width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.7}
+/* topbar + nav */
+.jk .topbar{background:#030812;border-bottom:1px solid var(--line)}
+.jk .topbar .wrap{display:flex;justify-content:space-between;gap:16px;min-height:34px;align-items:center}
+.jk .topbar .mono{color:var(--mute);font-size:.62rem;letter-spacing:.2em}
+@media(max-width:760px){.jk .topbar .r{display:none}}
+.jk .nav{position:sticky;top:0;z-index:50;background:rgba(6,13,28,.82);backdrop-filter:blur(10px) saturate(1.2);border-bottom:1px solid var(--line)}
+.jk .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:78px}
+.jk .mark{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.jk .mark .j{width:40px;height:40px;border-radius:50%;border:1px solid rgba(246,242,234,.5);display:grid;place-items:center;font-family:Fraunces,serif;font-size:1.25rem;color:var(--cream)}
+.jk .mark .t{font-family:Fraunces,serif;font-size:1.25rem;color:var(--cream);line-height:1}
+.jk .mark .s{display:block;font-family:"JetBrains Mono",monospace;font-size:.55rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+.jk .links{display:flex;gap:28px;font-family:Fraunces,serif;font-size:1rem;color:var(--cream);white-space:nowrap}
+.jk .links a{opacity:.85}.jk .links a:hover{opacity:1;color:var(--parch)}
+.jk .navcta{display:flex;gap:14px;align-items:center}
+.jk .phone{font-weight:600;color:var(--cream);white-space:nowrap;font-size:.95rem}
+.jk .nav .btn{padding:12px 20px;font-size:.72rem}
+@media(max-width:1100px){.jk .links{display:none}}
+@media(max-width:700px){.jk .phone{display:none}.jk .mark .s{display:none}}
+/* hero */
+.jk .hero{position:relative;min-height:92vh;display:flex;align-items:center;overflow:hidden;background:#000}
+.jk .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 40%;opacity:.95}
+.jk .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,13,28,.96) 0%,rgba(6,13,28,.82) 38%,rgba(6,13,28,.25) 70%,rgba(6,13,28,.45) 100%),linear-gradient(0deg,rgba(6,13,28,1) 0%,rgba(6,13,28,0) 35%)}
+.jk .hero .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:110px;max-width:1180px}
+.jk .hero .copy{max-width:720px}
+.jk .lede{font-size:1.15rem;color:#D5D9E6;margin:26px 0 34px;max-width:58ch;line-height:1.7}
+.jk .ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.jk .hero .alt{margin-top:18px;font-size:.95rem;color:var(--mute)}
+.jk .hero .alt a{color:var(--cream);font-weight:600;border-bottom:1px solid var(--parch)}
+.jk .trust{display:flex;flex-wrap:wrap;gap:0;margin-top:54px;border-top:1px solid var(--line);padding-top:22px}
+.jk .trust div{padding-right:34px;margin-right:34px;border-right:1px solid var(--line)}
+.jk .trust div:last-child{border:0}
+.jk .trust b{display:block;font-family:Fraunces,serif;font-size:1.35rem;color:var(--cream);font-weight:600}
+.jk .trust span{font-size:.82rem;color:var(--mute)}
+@media(max-width:700px){.jk .trust div{border:0;margin:0 0 14px;padding:0;width:100%}.jk .hero .wrap{padding-top:60px;padding-bottom:70px}}
+/* sections */
+.jk section{padding:110px 0;position:relative}
+.jk .chapter{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.jk .chapter .q{font-family:Fraunces,serif;font-style:italic;font-size:2.2rem;color:var(--parch);line-height:1;transform:translateY(-6px)}
+.jk .head{max-width:760px}
+.jk .head p{margin-top:18px;font-size:1.12rem}
+.jk .hair{height:1px;background:var(--line)}
+/* problem */
+.jk .problem{background:var(--bg)}
+.jk .problem .big{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:clamp(1.6rem,3vw,2.4rem);color:var(--cream);line-height:1.35;max-width:900px}
+.jk .cells{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px;border-top:1px solid var(--line)}
+.jk .cell{padding:34px 28px 34px 0;border-right:1px solid var(--line);padding-left:28px}
+.jk .cell:first-child{padding-left:0}.jk .cell:last-child{border-right:0}
+.jk .cell .num{font-family:Fraunces,serif;font-size:2.4rem;color:var(--parch);font-weight:500;margin-bottom:10px}
+.jk .cell h3{margin-bottom:10px;font-size:1.15rem}
+.jk .cell p{font-size:.98rem}
+@media(max-width:900px){.jk .cells{grid-template-columns:1fr}.jk .cell{border-right:0;border-bottom:1px solid var(--line);padding-left:0}}
+/* two doors */
+.jk .doors{background:#040A17}
+.jk .doorgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+@media(max-width:900px){.jk .doorgrid{grid-template-columns:1fr}}
+.jk .door{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column}
+.jk .door .ph{aspect-ratio:16/10;overflow:hidden;position:relative}
+.jk .door .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.jk .door:hover .ph img{transform:scale(1.03)}
+.jk .door .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--panel) 0%,rgba(11,26,54,0) 45%)}
+.jk .door .body{padding:10px 40px 44px}
+.jk .door h3{font-size:clamp(1.7rem,2.6vw,2.3rem);margin:14px 0 16px}
+.jk .door p{font-size:1rem}
+.jk .list{list-style:none;margin:26px 0 32px}
+.jk .list li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid var(--line);font-size:.97rem;color:#D5D9E6}
+.jk .list li::before{content:"✦";color:var(--parch);font-size:.8rem;line-height:1.7}
+/* offer split */
+.jk .offer{background:var(--bg)}
+.jk .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+@media(max-width:900px){.jk .split{grid-template-columns:1fr;gap:36px}}
+.jk .frame{position:relative;border:1px solid rgba(246,242,234,.25);padding:12px}
+.jk .frame img{display:block;width:100%;height:100%;object-fit:cover;aspect-ratio:4/3.3}
+.jk .frame .tag{position:absolute;left:28px;bottom:28px;background:rgba(6,13,28,.86);border:1px solid var(--line);padding:10px 14px;font-size:.78rem;color:var(--cream)}
+.jk .frame .tag b{display:block;font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:var(--parch);font-weight:500;margin-bottom:3px}
+.jk .fine{font-size:.85rem;color:var(--mute);margin-top:14px}
+/* lanes */
+.jk .lanes{background:#040A17}
+.jk .lgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px}
+@media(max-width:1000px){.jk .lgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.jk .lgrid{grid-template-columns:1fr}}
+.jk .lane{display:block;background:#040A17;padding:30px 26px;min-height:230px;transition:background .2s}
+.jk .lane:hover{background:var(--panel)}
+.jk .lane .n{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.24em;color:var(--parch)}
+.jk .lane h3{font-size:1.05rem;letter-spacing:.06em;margin:14px 0 10px;text-transform:uppercase;font-family:Inter,sans-serif;font-weight:700}
+.jk .lane p{font-size:.92rem}
+.jk .lane .go{display:inline-block;margin-top:16px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid var(--parch);padding-bottom:3px}
+/* methods */
+.jk .methods{background:var(--bg)}
+.jk .mlist{margin-top:10px}
+.jk .m{padding:24px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:52px 1fr;gap:18px}
+.jk .m .k{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.2em;color:var(--parch);padding-top:6px}
+.jk .m h3{font-size:1.2rem;margin-bottom:6px}
+.jk .m p{font-size:.97rem}
+/* about */
+.jk .about{background:#040A17}
+.jk .quote{font-family:Fraunces,serif;font-style:italic;font-weight:500;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.3;color:var(--cream);max-width:980px}
+.jk .attrib{margin-top:26px}
+.jk .attrib .mono{color:var(--mute)}
+.jk .bio{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:center;margin-top:70px}
+@media(max-width:900px){.jk .bio{grid-template-columns:1fr;gap:36px}}
+.jk .portrait{aspect-ratio:4/5;border:1px solid rgba(246,242,234,.25);padding:12px;position:relative}
+.jk .portrait .in{width:100%;height:100%;background:linear-gradient(160deg,#0A1F44,#132F6A 60%,#0A1F44);display:grid;place-items:center;position:relative;overflow:hidden}
+.jk .portrait .mono-l{font-family:Fraunces,serif;font-size:6.5rem;color:var(--cream);font-weight:500;opacity:.9}
+.jk .portrait .cap{position:absolute;left:28px;right:28px;bottom:28px;background:rgba(6,13,28,.86);border:1px solid var(--line);padding:12px 14px;font-size:.82rem}
+.jk .portrait .cap b{display:block;font-family:"JetBrains Mono",monospace;font-size:.6rem;letter-spacing:.22em;color:var(--parch);font-weight:500;margin-bottom:4px}
+.jk .bio p+p{margin-top:14px}
+/* guides */
+.jk .guides{background:var(--bg)}
+.jk .ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
+@media(max-width:900px){.jk .ggrid{grid-template-columns:1fr}}
+.jk .g{border:1px solid var(--line);background:var(--panel);padding:34px 30px;display:flex;flex-direction:column}
+.jk .g .k{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.24em;color:var(--parch);text-transform:uppercase}
+.jk .g h3{font-size:1.5rem;margin:14px 0 12px}
+.jk .g p{font-size:.97rem;flex:1}
+.jk .g .btn{margin-top:26px;align-self:flex-start}
+/* faq */
+.jk .faq{background:#040A17}
+.jk details{border-bottom:1px solid var(--line);padding:22px 0}
+.jk details:first-of-type{border-top:1px solid var(--line)}
+.jk summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:Fraunces,serif;font-size:1.3rem;color:var(--cream)}
+.jk summary::-webkit-details-marker{display:none}
+.jk summary::after{content:"+";font-family:Fraunces,serif;font-size:1.8rem;color:var(--parch);line-height:1}
+.jk details[open] summary::after{content:"–"}
+.jk details p{margin-top:14px;max-width:70ch}
+/* final */
+.jk .final{position:relative;overflow:hidden;background:#000}
+.jk .final img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.jk .final::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,13,28,.97) 0%,rgba(6,13,28,.9) 50%,rgba(6,13,28,.6) 100%)}
+.jk .final .wrap{position:relative;z-index:2}
+.jk .final .split{align-items:start}
+.jk .formbox{background:#fff;border:1px solid var(--line);padding:10px;min-height:560px}
+.jk .formbox iframe{width:100%;border:0;min-height:560px;display:block}
+.jk .consent{font-size:.8rem;color:var(--mute);margin-top:16px;max-width:60ch}
+/* footer */
+.jk footer{background:#030812;padding:60px 0 40px;border-top:1px solid var(--line);font-size:.9rem;color:var(--mute)}
+.jk .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:900px){.jk .fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.jk .fgrid{grid-template-columns:1fr}}
+.jk footer h4{font-family:"JetBrains Mono",monospace;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--parch);font-weight:500;margin-bottom:16px}
+.jk footer ul{list-style:none}.jk footer li{margin:8px 0}.jk footer a:hover{color:var(--cream)}
+.jk .legal{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);font-size:.78rem;line-height:1.65}
+.jk .legal p{font-size:.78rem;color:#8891A8}
+.jk .legal p+p{margin-top:8px}
+@media(prefers-reduced-motion:reduce){.jk *{transition:none!important}}
+</style>
+<div class="jk">
+
+<div class="topbar"><div class="wrap"><span class="mono">N 29°45′ W 95°22′ &nbsp;·&nbsp; Houston, Texas</span><span class="mono r">Lionel Jack Financial Services &nbsp;·&nbsp; Est. MMVI &nbsp;·&nbsp; TX License #1340100</span></div></div>
+
+<nav class="nav" aria-label="Primary">
+ <div class="wrap">
+  <a class="mark" href="/" aria-label="The Jack of Insurance home"><img class="logo" src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/8453090b-56f3-4920-9fd6-0a6cf1e8788c.png" alt="The Jack of Insurance"><span class="s" style="display:block;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)">Know Insurance.<br>Know Jack.</span></a>
+  <div class="links"><a href="#doors">Two Doors</a><a href="#coverage">Coverage</a><a href="#method">The Method</a><a href="#about">Meet Jack</a><a href="#faq">Questions</a></div>
+  <div class="navcta"><a class="phone" href="tel:+12814869361">(281) 486-9361</a><a class="btn btn-red" href="https://thejackofinsurance.com/book">Book a call <span class="dot"></span></a></div>
+ </div>
+</nav>
+
+<header class="hero">
+ <img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/47442ae8-1d73-421c-87b6-9e02c4740ba1.jpg" alt="A Houston father lifts his laughing daughter in the backyard at golden hour" fetchpriority="high">
+ <div class="wrap">
+  <div class="copy">
+   <div class="eyebrow"><span class="mono">A family-first invitation from Lionel Jack</span></div>
+   <h1>Protection you <em>understand</em>.<br>Retirement you <em>keep</em>.</h1>
+   <p class="lede">Since 2006, Lionel Jack has helped Texas families and business owners protect their income, cover the unexpected, and build retirement income that isn't eaten by taxes. One independent agent. Multiple carriers. Straight answers — and real numbers, not a pitch.</p>
+   <div class="ctas">
+    <a class="btn btn-red" href="https://thejackofinsurance.com/book">Book my free 15-minute call <span class="dot"></span></a>
+    <a class="btn btn-ghost" href="https://thejackofinsurance.com/ask-jack">Take the 60-second quiz</a>
+   </div>
+   <p class="alt">Prefer to talk now? Call <a href="tel:+12814869361">(281) 486-9361</a></p>
+   <div class="trust">
+    <div><b>Since 2006</b><span>Nearly two decades, independent</span></div>
+    <div><b>Multi-carrier</b><span>We shop it for you — not one company</span></div>
+    <div><b>Texas-wide</b><span>Houston · Clear Lake · Galveston · virtual statewide</span></div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<section class="problem" aria-labelledby="problem-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 01 — The Gap You Can't See</span></div>
+  <p class="big" id="problem-h">Most people can't say what their coverage actually pays. Most retirement plans only project the balance — never the after-tax check. If you keep guessing, you keep carrying a gap you can't see, because nobody has ever shown you <em>the number</em>. Jack starts with the number.</p>
+  <div class="cells">
+   <div class="cell"><div class="num">1–2×</div><h3>Work coverage usually isn't enough</h3><p>Group life is often one to two times salary — and it ends when the job does. A quick review shows whether there's a gap worth closing.</p></div>
+   <div class="cell"><div class="num">After-tax</div><h3>The number that matters in retirement</h3><p>Required minimum distributions, Social Security taxation, Medicare surcharges. Lionel starts with what you'll <em>keep</em> and works backward.</p></div>
+   <div class="cell"><div class="num">8 lanes</div><h3>One relationship, not eight salespeople</h3><p>Life, retirement, auto, home, commercial, business, health, Medicare — shopped across carriers by the same person who knows your family.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="doors" class="doors" aria-labelledby="doors-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 02 — Two Doors</span></div>
+  <div class="head"><h2 id="doors-h">Protect the people you love, <em>or</em> keep the retirement you built.</h2><p>Most clients walk through both doors eventually. Start with the one that's on your mind tonight — one short conversation routes you to the right place.</p></div>
+  <div class="doorgrid">
+   <article class="door">
+    <div class="ph"><img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/34866fed-ea56-40d0-a951-0e94a18c723e.jpg" alt="A family of four laughing on the porch of their Houston home at dusk" loading="lazy"></div>
+    <div class="body">
+     <span class="mono">Door 01 — Protect the people you love</span>
+     <h3>Make sure the worst day is <em>paid for</em>.</h3>
+     <p>For the parent, homeowner, or spouse who wants to know — in a real number — that the people they love never have to figure out how to pay for the worst day.</p>
+     <ul class="list">
+      <li>Term, whole life, IUL and final expense — explained in plain English</li>
+      <li>Auto, home, renters — plus the wind &amp; flood guidance Gulf Coast households actually need</li>
+      <li>Individual &amp; family health, disability and long-term care planning</li>
+      <li>Shopped across multiple carriers at a budget <em>you</em> name</li>
+     </ul>
+     <a class="btn btn-red" href="https://thejackofinsurance.com/book">Protect my family <span class="dot"></span></a>
+    </div>
+   </article>
+   <article class="door">
+    <div class="ph"><img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/b5062641-425f-4eff-a5c8-8b0c77528038.jpg" alt="A retired couple reviewing their retirement paperwork together at a sunlit kitchen table" loading="lazy"></div>
+    <div class="body">
+     <span class="mono">Door 02 — Keep the retirement you built</span>
+     <h3>Retirement income that isn't <em>eaten by taxes</em>.</h3>
+     <p>For the pre-retiree with an IRA or 401(k), the business owner, or anyone turning 65 who wants a check they can't outlive — and a tax bill they control.</p>
+     <ul class="list">
+      <li>Tax-free income strategies and the Three Tax Buckets</li>
+      <li>Annuities with guaranteed lifetime income, backed by the carrier</li>
+      <li>IRA &amp; 401(k) rollovers and Roth conversions, done right</li>
+      <li>Key-person, buy-sell and business-owner retirement plans</li>
+     </ul>
+     <a class="btn btn-ghost" href="https://thejackofinsurance.com/retirement">Keep my retirement <span class="dot"></span></a>
+    </div>
+   </article>
+  </div>
+ </div>
+</section>
+
+<section class="offer" aria-labelledby="offer-h">
+ <div class="wrap split">
+  <div class="frame"><img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/4077a221-d101-47c8-97a2-cc4251189b55.jpg" alt="An independent insurance advisor explaining options to a young couple across his desk" loading="lazy"><div class="tag"><b>Free · No obligation</b>Phone or video · evenings by request</div></div>
+  <div>
+   <div class="chapter"><span class="q">"</span><span class="mono">Chapter 03 — The Offer</span></div>
+   <h2 id="offer-h">The 15-Minute <em>Coverage Check</em>.</h2>
+   <ul class="list">
+    <li>What you actually have today — work coverage, term, permanent</li>
+    <li>What a gap would cost your family, in real numbers</li>
+    <li>Two or three options at a budget <em>you</em> name</li>
+    <li>You leave with numbers, not a pitch</li>
+   </ul>
+   <a class="btn btn-red" href="https://thejackofinsurance.com/book">Reserve my call <span class="dot"></span></a>
+   <p class="fine">Mon–Fri 9–6 CT · Houston, Clear Lake, Galveston County and all of Texas by phone or video.</p>
+  </div>
+ </div>
+</section>
+
+<section id="coverage" class="lanes" aria-labelledby="lanes-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 04 — One mark · Eight products · One relationship</span></div>
+  <div class="head"><h2 id="lanes-h">Whatever you're protecting, Jack has a <em>lane</em> for it.</h2></div>
+  <div class="lgrid">
+   <a class="lane" href="https://thejackofinsurance.com/jack-life"><span class="n">01</span><h3>Jack Life</h3><p>Term, whole life, IUL, final expense. Income protection and tax-advantaged cash value your family can actually use.</p><span class="go">Explore</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/retirement"><span class="n">02</span><h3>Jack Retirement</h3><p>Tax-free income strategies, annuities with guaranteed lifetime income, rollovers done right.</p><span class="go">Explore</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=auto"><span class="n">03</span><h3>Jack Auto</h3><p>Personal and family auto, shopped across carriers for the right coverage at the right price.</p><span class="go">Get a quote</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=home"><span class="n">04</span><h3>Jack Home</h3><p>Homeowners, renters, and the wind &amp; flood guidance Gulf Coast households need.</p><span class="go">Get a quote</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=commercial"><span class="n">05</span><h3>Jack Commercial</h3><p>General liability, commercial property, fleet and workers' comp guidance.</p><span class="go">Get a quote</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=business"><span class="n">06</span><h3>Jack Business</h3><p>Key-person, buy-sell funding, executive bonus and business-owner retirement plans.</p><span class="go">Talk to Jack</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=health"><span class="n">07</span><h3>Jack Health</h3><p>Individual and family health options, disability and long-term care planning.</p><span class="go">Get a quote</span></a>
+   <a class="lane" href="https://thejackofinsurance.com/quote?line=medicare"><span class="n">08</span><h3>Jack Medicare</h3><p>Turning 65? Supplements, Advantage and Part D — explained without the jargon, on a call.</p><span class="go">Get help</span></a>
+  </div>
+ </div>
+</section>
+
+<section id="method" class="methods" aria-labelledby="method-h">
+ <div class="wrap split">
+  <div>
+   <div class="chapter"><span class="q">"</span><span class="mono">Chapter 05 — Protecting · Preserving · Expanding</span></div>
+   <h2 id="method-h">The tools Lionel has used with families <em>since 2006</em>.</h2>
+   <p style="margin-top:18px">This isn't a quote machine. It's a way of seeing your whole financial picture — so every policy and every dollar has a job.</p>
+   <div class="mlist">
+    <div class="m"><span class="k">01</span><div><h3>Financial GPS Report</h3><p>A one-page picture of where your money is, where it's leaking, and the two or three moves worth considering. Complimentary.</p></div></div>
+    <div class="m"><span class="k">02</span><div><h3>Three Tax Buckets</h3><p>Taxable, tax-deferred, tax-free. Diversify across all three so you control your tax bill in retirement — instead of the other way around.</p></div></div>
+    <div class="m"><span class="k">03</span><div><h3>Circle of Wealth<sup>®</sup></h3><p>How money actually moves through your life — and how to stop paying interest to everyone but yourself.</p></div></div>
+    <div class="m"><span class="k">04</span><div><h3>Personal Economic Model</h3><p>The four toughest financial questions, answered with your numbers: how much, how long, what if, and what's it costing you now.</p></div></div>
+   </div>
+  </div>
+  <div class="frame"><img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/f906da5e-646c-4dae-892e-056923ef2a97.jpg" alt="A Houston small-business owner standing proudly in the doorway of her shop at dawn" loading="lazy"><div class="tag"><b>Business owners</b>Key-person · buy-sell · owner retirement</div></div>
+ </div>
+</section>
+
+<section id="about" class="about" aria-labelledby="about-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 06 — Meet Jack</span></div>
+  <p class="quote" id="about-h">My job isn't to sell you a policy. It's to make sure the people you love never have to figure out how to pay for the worst day.</p>
+  <div class="attrib"><span class="mono">— Lionel Jack · Founder, Lionel Jack Financial Services · Independent Insurance &amp; Retirement Strategist</span></div>
+  <div class="bio">
+   <div class="portrait" role="img" aria-label="Lionel Jack, founder">
+    <div class="in">
+     <!-- SWAP: replace .in contents with <img src="…lionel-headshot.jpg" alt="Lionel Jack" style="width:100%;height:100%;object-fit:cover"> -->
+     <img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/8453090b-56f3-4920-9fd6-0a6cf1e8788c.png" alt="" style="width:62%;height:auto;opacity:.92">
+     <div class="cap"><b>Lionel Jack · Founder</b>Since 2006 · TX License #1340100</div>
+    </div>
+   </div>
+   <div>
+    <h2>An agent who explains it the way you'd explain it to <em>family</em>.</h2>
+    <p style="margin-top:20px">Lionel Jack founded Lionel Jack Financial Services in 2006 and has spent nearly two decades helping Houston-area families and business owners protect what they've built and grow what they'll retire on. As an independent agent he works for you — not a single carrier — and shops your coverage across multiple companies.</p>
+    <p>The Jack of Insurance brings that same relationship to every line of coverage under one roof: Houston, Clear Lake, Galveston County and all of Texas.</p>
+    <div class="ctas" style="margin-top:28px"><a class="btn btn-red" href="https://thejackofinsurance.com/book">Schedule with Lionel <span class="dot"></span></a><a class="btn btn-ghost" href="tel:+12814869361">Call (281) 486-9361</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="guides" aria-labelledby="guides-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 07 — Signature Guide Series</span></div>
+  <div class="head"><h2 id="guides-h">Free guides. Ten minutes each. <em>No jargon</em>.</h2></div>
+  <div class="ggrid">
+   <div class="g"><span class="k">Guide 01</span><h3>Final Expense Planning Made Simple</h3><p>What final expenses really cost, how burial insurance works, and how to choose with confidence.</p><a class="btn btn-ghost" href="https://thejackofinsurance.com/guides/final-expense">Get the guide</a></div>
+   <div class="g"><span class="k">Guide 02</span><h3>The Tax-Free Retirement Playbook</h3><p>Why retirement income can be taxed harder than you expect, and three strategies to diversify.</p><a class="btn btn-ghost" href="https://thejackofinsurance.com/guides/tax-free-retirement">Get the guide</a></div>
+   <div class="g"><span class="k">Guide 03</span><h3>Become Your Family's Bank</h3><p>How properly structured whole life builds cash you can borrow against — and the mistakes to avoid.</p><a class="btn btn-ghost" href="https://thejackofinsurance.com/guides/family-banking">Get the guide</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="faq" class="faq" aria-labelledby="faq-h">
+ <div class="wrap">
+  <div class="chapter"><span class="q">"</span><span class="mono">Chapter 08 — Questions people ask Jack</span></div>
+  <div class="head" style="margin-bottom:40px"><h2 id="faq-h">Straight <em>answers</em>.</h2></div>
+  <details><summary>Is the 15-minute call really free?</summary><p>Yes. There is no fee and no obligation. Independent agents are compensated by the insurance company only if you choose to put a policy in force.</p></details>
+  <details><summary>Do I have to meet in person?</summary><p>No. Most conversations happen by phone or video. Lionel serves clients across Texas and meets in person in the Houston / Clear Lake / Galveston County area on request.</p></details>
+  <details><summary>I have coverage through work. Isn't that enough?</summary><p>Group coverage is a great start, but it usually ends when the job does and is often 1–2× salary. A quick review shows whether there's a gap worth closing.</p></details>
+  <details><summary>Can you help with auto and home too?</summary><p>Yes — Jack Auto, Jack Home and Jack Commercial quotes are shopped across multiple carriers. Send a quick quote request and we'll tell you what we need.</p></details>
+  <details><summary>Are cash-value and retirement strategies guaranteed?</summary><p>Guarantees are provided by the issuing insurance company and depend on its claims-paying ability. Lionel will show you the guaranteed and non-guaranteed columns of any illustration side by side.</p></details>
+ </div>
+</section>
+
+<section class="final" aria-labelledby="final-h">
+ <img src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/d997a81a-59a3-4277-97e0-9b592946522a.jpg" alt="" loading="lazy">
+ <div class="wrap split">
+  <div>
+   <div class="chapter"><span class="q">"</span><span class="mono">Ready when you are</span></div>
+   <h2 id="final-h">Know Insurance.<br>Know <em>Jack</em>.</h2>
+   <p style="margin-top:20px;font-size:1.15rem">Fifteen minutes, real numbers, zero pressure. Book a call with Lionel, or tell us what's on your mind and we'll point you to the right door.</p>
+   <div class="ctas" style="margin-top:28px"><a class="btn btn-red" href="https://thejackofinsurance.com/book">Book my call <span class="dot"></span></a><a class="btn btn-gold" href="tel:+12814869361">Call (281) 486-9361</a></div>
+   <p class="consent">Submitting the form is how you tell us how to reach you. Texting is optional and separate — your mobile number is never sold or shared with third parties for their marketing. Msg frequency varies; msg &amp; data rates may apply; reply STOP to opt out, HELP for help.</p>
+  </div>
+  <div class="formbox"><iframe src="https://api.leadconnectorhq.com/widget/form/JIlVVglw7YIg84fApUSZ" title="Tell Jack what matters — request form" loading="lazy"></iframe></div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="fgrid">
+   <div><img class="logo" src="https://assets.cdn.filesafe.space/H4v7QN8wxJHArSaMJzQh/media/8453090b-56f3-4920-9fd6-0a6cf1e8788c.png" alt="The Jack of Insurance" style="height:120px;margin-bottom:18px"><p style="font-size:.9rem">Lionel Jack Financial Services · Houston, Clear Lake, Galveston County and all of Texas (virtual appointments statewide)</p></div>
+   <div><h4>Coverage</h4><ul><li><a href="https://thejackofinsurance.com/jack-life">Life</a></li><li><a href="https://thejackofinsurance.com/retirement">Retirement</a></li><li><a href="https://thejackofinsurance.com/quote?line=auto">Auto</a></li><li><a href="https://thejackofinsurance.com/quote?line=home">Home</a></li><li><a href="https://thejackofinsurance.com/quote?line=commercial">Commercial</a></li><li><a href="https://thejackofinsurance.com/quote?line=medicare">Medicare</a></li></ul></div>
+   <div><h4>Resources</h4><ul><li><a href="https://thejackofinsurance.com/guides/final-expense">Final Expense Guide</a></li><li><a href="https://thejackofinsurance.com/guides/tax-free-retirement">Tax-Free Retirement Guide</a></li><li><a href="https://thejackofinsurance.com/guides/family-banking">Family Banking Guide</a></li><li><a href="https://thejackofinsurance.com/ask-jack">Ask Jack Quiz</a></li></ul></div>
+   <div><h4>Contact</h4><ul><li><a href="tel:+12814869361">(281) 486-9361</a></li><li><a href="mailto:support@ljjack.com">support@ljjack.com</a></li><li><a href="https://thejackofinsurance.com/book">Book a call</a></li><li>Mon–Fri 9:00 AM – 6:00 PM CT · Evenings by request</li></ul></div>
+  </div>
+  <div class="legal">
+   <p>Lionel Jack is a Texas-licensed insurance agent (TX License #1340100). Products offered through multiple carriers; availability varies by state.</p>
+   <p>This material is for general educational purposes only and does not constitute insurance, legal, tax, or investment advice. Pursuant to IRS Circular 230, it is not intended to provide specific legal or tax advice and cannot be used to avoid penalties. Guarantees are based on the claims-paying ability of the issuing insurance company. Speak with a licensed agent about your specific situation.</p>
+   <p>© 2026 The Jack of Insurance. All rights reserved. · <a href="https://thejackofinsurance.com/privacy">Privacy</a> · <a href="https://thejackofinsurance.com/terms">Terms</a> · <a href="https://scalemaestro.com">Powered by ScaleMaestro</a></p>
+  </div>
+ </div>
+</footer>
+
+</div>
